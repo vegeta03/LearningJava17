@@ -33,3 +33,20 @@
       - So if you have a `String` and you call `CharSequence subSequence(int, int)` method you will lose the `String` nature unless you test it and potentially do a downcast for it.
 
 ## More Common Text Methods
+
+`String` and `StringBuilder` have more common methods: 
+- `getChars` - copy partial text into an array
+- code point variations
+- `indexOf`/`lastIndexOf` variations
+- `substring` variations.
+  - it doesn't follow camelCase
+
+## String Pooling
+
+`String` literals and constant expressions are pooled
+- `String`s are immutable, so identical text can be shared
+- Compiler and Classloader spots duplicates
+  - if we have two different classes compiled separately and they contain the same literal text, the class files will have their own representation of that text. But by the time those are loaded into the running JVM they will refer to the same object in memory.
+- This automatic behaviour is only applicable to literals and constant expressions.
+- To ensure that one of our `String` objects is in the constant pool and will be shared, we need to use the `intern()` method to make that happen.
+  - `intern()` method finds or puts a `String` into the pool.
