@@ -1,1 +1,1 @@
-# # Refreshing Java by Learning Java 17
+# Refreshing Java by Learning Java 17
